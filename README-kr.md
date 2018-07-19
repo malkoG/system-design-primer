@@ -447,7 +447,7 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
 * **가용성(Availability)** - 모든 요청에는 최신 버전의 정보가 포함되어 있다는 보장 없이 응답이 수신됩니다. 
 * **분할 내성(Partition Tolerance)** - 네트워크 장애로 인해 임의로 분할되는 한이 있더라도 시스템은 계속해서 작동합니다. 
 
-*네트워크는 신뢰할 수 없기 때문에, 여러분은 분할 내성을 지원할 필요가 있습니다. 일관성과 가용성의 사이에서 절충안을 결정해야 할 것입니다.* 
+*네트워크는 신뢰할 수 없기 때문에, 여러분은 분할 내성을 지원할 필요가 있습니다. 일관성과 가용성의 사이에서 소프트웨어 절충안이 필요합니다.* 
 
 #### CP - 일관성과 분할 내성
 
@@ -459,7 +459,7 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
 
 AP는 비즈니스에서 [궁극적 일관성](#궁극적-일관성) 이 필요하거나 시스템이 외부에서 생겨난 오류와 상관없이 계속해서 작동해야 한다면 괜찮은 선택입니다.
 
-### 참고한 자료 및 읽어볼만한 글
+### 참고한 자료 및 읽어볼만한 글 (Source(s) and further reading)
 
 * [CAP theorem revisited](http://robertgreiner.com/2014/08/cap-theorem-revisited/)
 * [A plain english introduction to CAP theorem](http://ksat.me/a-plain-english-introduction-to-cap-theorem/)
