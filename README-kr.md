@@ -487,7 +487,7 @@ AP is a good choice if the business needs allow for [eventual consistency](#even
 
 이와 같은 접근 방법은 파일시스템이나 여러 RDBMS에서 보여집니다. 강한 일관성은 트랜잭션이 요구되는 시스템에서 잘 적용되고 있습니다. 
 
-### 참고한 자료 및 읽어볼만한 글
+### 참고한 자료 및 읽어볼만한 글 (Source(s) and further reading)
 
 * [Transactions across data centers](http://snarfed.org/transactions_across_datacenters_io.html)
 
