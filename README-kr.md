@@ -433,7 +433,7 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
 
 ## 가용성 vs 일관성
 
-### CAP 정리
+### CAP 의 원리
 
 <p align="center">
   <img src="http://i.imgur.com/bgLMI2u.png">
