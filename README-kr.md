@@ -431,9 +431,9 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
 
 * [Understanding latency vs throughput](https://community.cadence.com/cadence_blogs_8/b/sd/archive/2010/09/13/understanding-latency-vs-throughput)
 
-## Availability vs consistency
+## 가용성 vs 일관성
 
-### CAP theorem
+### CAP 정리
 
 <p align="center">
   <img src="http://i.imgur.com/bgLMI2u.png">
@@ -441,25 +441,25 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
   <i><a href=http://robertgreiner.com/2014/08/cap-theorem-revisited>Source: CAP theorem revisited</a></i>
 </p>
 
-In a distributed computer system, you can only support two of the following guarantees:
+분산 컴퓨터 시스템에서는 다음의 선택지 중에서 오직 두가지만을 보장할 수 있습니다.
 
-* **Consistency** - Every read receives the most recent write or an error
-* **Availability** - Every request receives a response, without guarantee that it contains the most recent version of the information
-* **Partition Tolerance** - The system continues to operate despite arbitrary partitioning due to network failures
+* **일관성(Consistency)** - 모든 읽기 연산은 가장 최근에 일어난 쓰기 연산이나 오류를 받아들입니다.
+* **가용성(Availability)** - 모든 요청에는 최신 버전의 정보가 포함되어 있다는 보장 없이 응답이 수신됩니다. 
+* **파티션 허용성(Partition Tolerance)** - 네트워크 장애로 인해 임의로 파티션되는 한이 있더라도 시스템은 계속해서 작동합니다. 
 
-*Networks aren't reliable, so you'll need to support partition tolerance.  You'll need to make a software tradeoff between consistency and availability.*
+*네트워크는 믿을 수 없기 때문에, 여러분은 파티션 허용성을 지원할 필요가 있습니다. 일관성과 가용성의 사이에서 절충안을 결정해야 할 것입니다.* 
 
-#### CP - consistency and partition tolerance
+#### CP - 일관성과 파티션 허용성
 
-Waiting for a response from the partitioned node might result in a timeout error.  CP is a good choice if your business needs require atomic reads and writes.
+분할된 노드에서 응답을 기다리는 동안 타임아웃 오류가 발생할 수 있습니다. CP는 여러분의 비즈니스에 원자적인 읽기/쓰기 연산이 필요할 때 괜찮은 선택입니다.
 
-#### AP - availability and partition tolerance
+#### AP - 가용성과 파티션 허용성
 
-Responses return the most recent version of the data available on the a node, which might not be the latest.  Writes might take some time to propagate when the partition is resolved.
+응답은 노드에서 이용할 수 있는 최신 버전의 데이터를 반환합니다. 최신 버전이 아닐 수도 있겠지만요. 파티션이 해결되었을때 전파하느라 쓰기 연산에 시간이 걸릴 수도 있습니다.
 
-AP is a good choice if the business needs allow for [eventual consistency](#eventual-consistency) or when the system needs to continue working despite external errors.
+AP는 비즈니스에서 [eventual consistency](#eventual-consistency) 가 필요하거나 시스템이 외부에서 생겨난 오류와 상관없이 계속해서 작동해야 한다면 괜찮은 선택입니다.
 
-### Source(s) and further reading
+### 참고한 자료 및 읽어볼만한 글
 
 * [CAP theorem revisited](http://robertgreiner.com/2014/08/cap-theorem-revisited/)
 * [A plain english introduction to CAP theorem](http://ksat.me/a-plain-english-introduction-to-cap-theorem/)
