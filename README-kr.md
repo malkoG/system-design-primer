@@ -491,41 +491,41 @@ This approach is seen in file systems and RDBMSes.  Strong consistency works wel
 
 * [Transactions across data centers](http://snarfed.org/transactions_across_datacenters_io.html)
 
-## Availability patterns
+## 가용성 패턴
 
-There are two main patterns to support high availability: **fail-over** and **replication**.
+고가용성을 지원하기 위해 쓰이는 방법으로 크게 두 가지가 있습니다. 그건 바로, **장애 조치(fail-over)**와 **복제(replication)**입니다.
 
-### Fail-over
+### 장애 조치
 
-#### Active-passive
+#### 활성화(active)-비활성화(passive)
 
-With active-passive fail-over, heartbeats are sent between the active and the passive server on standby.  If the heartbeat is interrupted, the passive server takes over the active's IP address and resumes service.
+활성화-비활성화 방식에서는 활성화된 서버와 대기 상태인 비활성화된 서버 사이에 heartbeat를 주고 받습니다. heartbeat를 주고 받는 동안 인터럽트가 발생하면, 비활성화된 서버가 활성화된 서버의 IP 주소를 넘겨받아 서비스를 재시작합니다. 
 
-The length of downtime is determined by whether the passive server is already running in 'hot' standby or whether it needs to start up from 'cold' standby.  Only the active server handles traffic.
+다운타임의 길이는 비활성화된 서버가 이미 `핫` 대기 상태에서 실행 중인지 혹은 `콜드` 대기 상태에서 시작해야 하는지 여부에 따라 결정됩니다. 오직 활성화된 서버만 트래픽을 처리합니다.
 
-Active-passive failover can also be referred to as master-slave failover.
+활성화-비활성화 장애조치는 마스터-슬레이브 장애조치로 언급되기도 합니다. 
 
-#### Active-active
+#### 활성화(Active)-활성화(active)
 
-In active-active, both servers are managing traffic, spreading the load between them.
+활성화-활성화 방식에서는 모든 서버가 트래픽을 처리하고, 트래픽을 처리하는데서 발생하는 부하를 서버 사이에서 분산합니다.
 
-If the servers are public-facing, the DNS would need to know about the public IPs of both servers.  If the servers are internal-facing, application logic would need to know about both servers.
+서버가 외부망에 노출되어 있을 경우, DNS는 두 서버의 공용 IP를 알아야 합니다. 서버가 내부망에 노출되어 있을 경우, 어플리케이션 로직은 두 서버에 대해 알고 있어야 합니다.
 
-Active-active failover can also be referred to as master-master failover.
+활성화-활성화 장애조치는 마스터-마스터 장애조치로 언급되기도 합니다.
 
-### Disadvantage(s): failover
+### 장애조치의 단점
 
-* Fail-over adds more hardware and additional complexity.
-* There is a potential for loss of data if the active system fails before any newly written data can be replicated to the passive.
+* 장애조치는 추가적인 하드웨어를 필요로 하며, 시스템을 더 복잡하게 만들 수도 있습니다. 
+* 새로이 쓰여지는 데이터를 비활성화된 서버에 복제하기 전에 활성화된 시스템에서 장애가 발생할 경우 데이터 손실이 발생할 수 있습니다.
 
-### Replication
+### 복제
 
-#### Master-slave and master-master
+#### 마스터-슬레이브 복제와 마스터-마스터 복제
 
-This topic is further discussed in the [Database](#database) section:
+이 항목은 [데이터베이스](#데이터베이스) 섹션에서 자세히 설명하겠습니다.
 
-* [Master-slave replication](#master-slave-replication)
-* [Master-master replication](#master-master-replication)
+* [마스터-슬레이브 복제](#마스터-슬레이브-복제)
+* [마스터-마스터 복제](#마스터-마스터-복제)
 
 ## Domain name system
 
