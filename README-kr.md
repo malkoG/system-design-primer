@@ -493,7 +493,7 @@ This approach is seen in file systems and RDBMSes.  Strong consistency works wel
 
 ## 가용성 패턴
 
-고가용성을 지원하는 주요 두 가지 패턴으로는 **장애 조치(fail-over)**와 **복제(replication)**가 있습니다.
+고가용성을 지원하는 주요 두 가지 패턴으로는 **페일오버(fail-over)**와 **복제(replication)**가 있습니다.
 
 ### 페일오버
 
