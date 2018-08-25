@@ -527,43 +527,43 @@ This topic is further discussed in the [Database](#database) section:
 * [Master-slave replication](#master-slave-replication)
 * [Master-master replication](#master-master-replication)
 
-## Domain name system
+## 도메인 네임 시스템
 
 <p align="center">
   <img src="http://i.imgur.com/IOyLj4i.jpg">
   <br/>
-  <i><a href=http://www.slideshare.net/srikrupa5/dns-security-presentation-issa>Source: DNS security presentation</a></i>
+  <i><a href=http://www.slideshare.net/srikrupa5/dns-security-presentation-issa>Source: DNS 보안 프레젠테이션</a></i>
 </p>
 
-A Domain Name System (DNS) translates a domain name such as www.example.com to an IP address.
+도메인 네임 시스템(DNS)은 www.example.com과 같은 도메인을 IP 주소로 변환해줍니다.
 
-DNS is hierarchical, with a few authoritative servers at the top level.  Your router or ISP provides information about which DNS server(s) to contact when doing a lookup.  Lower level DNS servers cache mappings, which could become stale due to DNS propagation delays.  DNS results can also be cached by your browser or OS for a certain period of time, determined by the [time to live (TTL)](https://en.wikipedia.org/wiki/Time_to_live).
+DNS는 상위 레벨에서 몇 개의 권한있는 서버로 구성된 계층 구조입니다. lookup을 수행할 때, 여러분의 라우터나 ISP는 연결할 DNS 서버에 대한 정보를 제공합니다. 하위 레벨의 DNS 서버는 매핑 정보를 캐시에 저장해둡니다. 이는 DNS 전파 지연으로 인해 오래된 정보일 수 있습니다. DNS 결과는 [TTL](https://en.wikipedia.org/wiki/Time_to_live)에 따라 결정되는 일정 주기에 따라 브라우저 또는 OS에서 캐싱할 수도 있습니다.
 
-* **NS record (name server)** - Specifies the DNS servers for your domain/subdomain.
-* **MX record (mail exchange)** - Specifies the mail servers for accepting messages.
-* **A record (address)** - Points a name to an IP address.
-* **CNAME (canonical)** - Points a name to another name or `CNAME` (example.com to www.example.com) or to an `A` record.
+* **NS 레코드 (네임 서버)** - 도메인/하위 도메인의 DNS 서버를 지정합니다.
+* **MX 레코드 (메일 교환)** - 메시지를 수신할 메일 서버를 지정합니다.
+* **A 레코드 (주소)** - 이름 주소를 IP 주소로 지정합니다.
+* **CNAME (정규형)** - 이름 주소를 다른 이름 주소나 혹은 `CNAME`(example.com를 www.example.com로) 혹은 `A` 레코드로 지정합니다.
 
-Services such as [CloudFlare](https://www.cloudflare.com/dns/) and [Route 53](https://aws.amazon.com/route53/) provide managed DNS services.  Some DNS services can route traffic through various methods:
+[CloudFlare](https://www.cloudflare.com/dns/)와 [Route 53](https://aws.amazon.com/route53/)과 같은 서비스들은 매니지드 DNS 서비스를 제공합니다. 몇몇 DNS 서비스는 다음과 같이 다양한 방법으로 트래픽을 라우팅할 수 있습니다.
 
-* [Weighted round robin](http://g33kinfo.com/info/archives/2657)
-    * Prevent traffic from going to servers under maintenance
-    * Balance between varying cluster sizes
-    * A/B testing
-* Latency-based
-* Geolocation-based
+* [가중치가 있는 라운드 로빈](http://g33kinfo.com/info/archives/2657)
+    * 유지보수 중인 서버로 트래픽이 가는 것을 방지합니다.
+    * 다양한 클러스터 간 크기의 균형을 맞춰줍니다.
+    * A/B 테스트
+* 레이턴시 기반
+* 지리위치 기반
 
-### Disadvantage(s): DNS
+### DNS 의 단점
 
-* Accessing a DNS server introduces a slight delay, although mitigated by caching described above.
-* DNS server management could be complex, although they are generally managed by [governments, ISPs, and large companies](http://superuser.com/questions/472695/who-controls-the-dns-servers/472729).
-* DNS services have recently come under [DDoS attack](http://dyn.com/blog/dyn-analysis-summary-of-friday-october-21-attack/), preventing users from accessing websites such as Twitter without knowing Twitter's IP address(es).
+* 위에서 말한 캐싱으로 속도가 완화될 수 있다하더라도, DNS에 대한 접근은 약간의 딜레이가 있을 수 있습니다.
+* 일반적으로 [정부, ISP, 규모가 큰 회사](http://superuser.com/questions/472695/who-controls-the-dns-servers/472729)에서 관리한다고 하더라도, DNS 서버 관리는 복잡해질 수 있습니다.
+* DNS 서비스는 최근 들어 [DDoS attack](http://dyn.com/blog/dyn-analysis-summary-of-friday-october-21-attack/)의 공격에 노출되어 왔습니다. Twitter의 예시를 들자면, 사용자가 Twitter의 IP 주소를 알지 못한 상태에서 웹 사이트에 이름 주소로는 접근하지 못하게 할 수 있습니다.
 
-### Source(s) and further reading
+### 참고한 자료 및 읽어볼만한 글 (Source(s) and further reading)
 
-* [DNS architecture](https://technet.microsoft.com/en-us/library/dd197427(v=ws.10).aspx)
-* [Wikipedia](https://en.wikipedia.org/wiki/Domain_Name_System)
-* [DNS articles](https://support.dnsimple.com/categories/dns/)
+* [DNS 아키텍쳐](https://technet.microsoft.com/en-us/library/dd197427(v=ws.10).aspx)
+* [위키](https://en.wikipedia.org/wiki/Domain_Name_System)
+* [DNS에 대한 아티클](https://support.dnsimple.com/categories/dns/)
 
 ## Content delivery network
 
